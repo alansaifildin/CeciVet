@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CeciVet · Cuidamos con amor, sanamos con vocación</title>
+<meta name="description" content="CeciVet: consultas, vacunas, baños y peluquería para tu mascota, con cariño de verdad.">
+<link rel="icon" href="assets/logo.png">
+
+<!-- Pacifico = la tipografía tipo brush del logo. Work Sans = texto. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- El checkbox invisible es el "interruptor" del menú de celular.
+       No hace falta JavaScript: el CSS reacciona solo a si está tildado. -->
+  <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+
+  <header>
+    <nav>
+      <a href="#inicio" class="marca">
+        <img src="assets/logo.png" alt="Logo CeciVet">
+        <span class="marca-texto">Cecivet</span>
+      </a>
+      <ul class="menu" id="menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="#contacto" class="cta">Reservar turno</a>
+      <label for="menu-toggle" class="menu-btn" aria-label="Abrir menú">☰</label>
+    </nav>
+  </header>
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <section class="hero" id="inicio">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">🐾 Cuidamos con amor, sanamos con vocación</span>
+        <h1>Tu mascota merece <span class="resalto">todo</span> el cariño.</h1>
+        <p>Consultas, vacunas y un baño con burbujas que la deja como nueva. En CeciVet la tratamos como de familia — porque lo es.</p>
+        <div class="hero-botones">
+          <a href="#contacto" class="cta">Reservar turno</a>
+          <a href="#servicios" class="cta-outline">Ver servicios</a>
+        </div>
+      </div>
+
+      <div class="hero-insignia">
+        <div class="aro-punteado"></div>
+        <div class="aro-punteado aro-2"></div>
+        <span class="hoja-flot h1"><svg viewBox="0 0 24 24" fill="var(--salvia)"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17 1.05.3 1.34.3C19 20 20 8 20 8s-6.85 1.63-11.03 5.45C9.94 10.8 12.79 8.83 17 8z"/></svg></span>
+        <span class="hoja-flot h2"><svg viewBox="0 0 24 24" fill="var(--caramelo)"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17 1.05.3 1.34.3C19 20 20 8 20 8s-6.85 1.63-11.03 5.45C9.94 10.8 12.79 8.83 17 8z"/></svg></span>
+        <img src="assets/logo.png" alt="CeciVet — cuidamos con amor, sanamos con vocación" class="logo-hero">
+      </div>
+    </div>
+  </section>
+
+  <div class="franja">
+    <div class="franja-grid">
+      <div class="franja-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--caramelo)" stroke-width="2"><path d="M20 21c0-3-3.5-5-8-5s-8 2-8 5"/><circle cx="12" cy="7" r="4"/></svg> +300 mascotas atendidas</div>
+      <div class="franja-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--caramelo)" stroke-width="2"><path d="M12 21s-8-4.5-8-11a5 5 0 0110-1 5 5 0 0110 1c0 6.5-8 11-8 11z"/></svg> Trato con amor real</div>
+      <div class="franja-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--caramelo)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> Vocación veterinaria</div>
+      <div class="franja-item"><svg viewBox="0 0 24 24" fill="none" stroke="var(--caramelo)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Lun a sáb, 8 a 18 hs</div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SERVICIOS
+       ========================================================= -->
+  <section class="servicios textura-huellas" id="servicios">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <span class="eyebrow">Nuestros servicios</span>
+        <h2>Todo lo que tu mascota necesita</h2>
+        <p>Desde el chequeo de rutina hasta el mimo de un buen baño: acompañamos a tu mascota en cada etapa.</p>
+      </div>
+
+      <div class="tarjetas">
+        <div class="placa">
+          <span class="hoja-esquina"><svg viewBox="0 0 24 24" fill="var(--salvia)"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17 1.05.3 1.34.3C19 20 20 8 20 8s-6.85 1.63-11.03 5.45C9.94 10.8 12.79 8.83 17 8z"/></svg></span>
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bosque)" stroke-width="2"><path d="M9 12h6M12 9v6M4 6h16v13a1 1 0 01-1 1H5a1 1 0 01-1-1V6z"/><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg></div>
+          <h3>Consultas</h3>
+          <p>Revisiones generales, diagnóstico y seguimiento con atención personalizada para cada mascota.</p>
+        </div>
+
+        <div class="placa">
+          <span class="hoja-esquina"><svg viewBox="0 0 24 24" fill="var(--salvia)"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17 1.05.3 1.34.3C19 20 20 8 20 8s-6.85 1.63-11.03 5.45C9.94 10.8 12.79 8.83 17 8z"/></svg></span>
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="var(--bosque)" stroke-width="2"><path d="M12 2v6M9 5l3-3 3 3"/><path d="M6 10a6 6 0 0012 0"/><path d="M6 10v9a1 1 0 001 1h10a1 1 0 001-1v-9"/></svg></div>
+          <h3>Vacunas</h3>
+          <p>Plan de vacunación al día, con recordatorios para que nunca se te pase una dosis.</p>
+        </div>
+
+        <div class="placa destacada">
+          <span class="etiqueta-top">Nuestra especialidad</span>
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="14" r="3"/><path d="M6 9c0-1 .5-2 1-2M18 9c0-1-.5-2-1-2M9 4c-.5.5-1 1.2-1 2M15 4c.5.5 1 1.2 1 2"/></svg></div>
+          <h3>Baños y Peluquería</h3>
+          <p>Baño con productos suaves, corte de pelo y cepillado. Tu mascota sale relajada, limpita y con olor a nuevo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       NOSOTROS
+       ========================================================= -->
+  <section class="nosotros" id="nosotros">
+    <div class="nosotros-grid">
+            <div class="foto-insignia">
+        <div class="foto-marco">
+          <img src="assets/ceci-nosotros.jpg" alt="Ceci, fundadora de CeciVet, con uno de sus pacientes" loading="lazy">
+          <div class="cinta">Fundadora de CeciVet❤️</div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">Quiénes somos</span>
+        <h2>Cariño de verdad, cuidado profesional</h2>
+        <p>CeciVet nació de una idea simple: cada mascota merece el mismo cuidado y cariño que un miembro más de la familia. Acompañamos a tu compañero desde su primera consulta hasta ese baño que lo deja irreconocible de limpio.</p>
+        <p>Trabajamos con calma, sin apuros, para que cada visita sea una experiencia tranquila tanto para tu mascota como para vos.</p>
+        <div class="stats">
+          <div><strong>+300</strong><span>Mascotas atendidas</span></div>
+          <div><strong>100%</strong><span>Productos suaves</span></div>
+          <div><strong>5★</strong><span>Atención con cariño</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       GALERÍA
+       ========================================================= -->
+  <section class="galeria textura-huellas" id="galeria">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <span class="eyebrow">Galería</span>
+        <h2>Nuestros pacientes, antes y después</h2>
+        <p>&nbsp;</p>
+      </div>
+      <div class="grilla-galeria">
+               <div class="foto-item"><img src="assets/galeria/perrito-navideno.jpg" alt="Perrito negro con gorro navideño en CeciVet" loading="lazy"></div>
+        <div class="foto-item"><img src="assets/galeria/pomerania-mesa.jpg" alt="Pomerania recién bañado en la mesa de peluquería" loading="lazy"></div>
+        <div class="foto-item"><img src="assets/galeria/perrito-corbata.jpg" alt="Perrito con corbata verde después de su baño" loading="lazy"></div>
+        <div class="foto-item"><img src="assets/galeria/perrito-moño-rojo.jpg" alt="Perrito feliz con moño rojo" loading="lazy"></div>
+        <div class="foto-item"><img src="assets/galeria/duo-navideno.jpg" alt="Dos perritos juntos con temática navideña" loading="lazy"></div>
+        <div class="foto-item placeholder"><div class="contenido"><svg viewBox="0 0 24 24" fill="var(--bosque)"><circle cx="12" cy="12" r="9"/></svg>Próximamente</div></div>
+        <div class="foto-item placeholder"><div class="contenido"><svg viewBox="0 0 24 24" fill="var(--bosque)"><circle cx="12" cy="12" r="9"/></svg>Próximamente</div></div>
+        <div class="foto-item placeholder"><div class="contenido"><svg viewBox="0 0 24 24" fill="var(--bosque)"><circle cx="12" cy="12" r="9"/></svg>Próximamente</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CONTACTO
+       ========================================================= -->
+  <section class="contacto" id="contacto">
+    <div class="contacto-grid">
+      <div>
+        <span class="eyebrow" style="background:rgba(255,255,255,0.12); color:white; border-color:rgba(255,255,255,0.4);">Contacto</span>
+        <h2>Reservá el turno de tu mascota</h2>
+        <p>Escribinos o llamanos, y coordinamos el horario que mejor te quede.</p>
+
+               <a href="https://wa.me/595971111958" target="_blank" class="dato">
+          <div class="icono-chico"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8 9.9a16 16 0 006 6l1.4-1.4a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.8 2.2z"/></svg></div>
+          <div><strong>Teléfono / WhatsApp</strong><span>+595 971 111 958</span></div>
+        </a>
+        <div class="dato">
+          <div class="icono-chico"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><strong>Dirección</strong><span>Maestro Fermín Lopez c/ Quebracho</span></div>
+        </div>
+        <div class="dato">
+          <div class="icono-chico"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div><strong>Horarios</strong><span>Lunes a sábado, 8 a 18 hs</span></div>
+        </div>
+      </div>
+
+      <div class="form-placa">
+        <h3>Dejanos tus datos</h3>
+        <p>Te contactamos para confirmar el turno.</p>
+        <form id="formTurno">
+          <div class="campo-fila">
+            <div class="campo">
+              <label for="nombre">Tu nombre</label>
+              <input type="text" id="nombre" placeholder="Ej: Sofía" required>
+            </div>
+            <div class="campo">
+              <label for="mascota">Nombre de tu mascota</label>
+              <input type="text" id="mascota" placeholder="Ej: Toby" required>
+            </div>
+          </div>
+          <div class="campo">
+            <label for="servicio">Servicio</label>
+            <select id="servicio">
+              <option>Consulta</option>
+              <option>Vacunación</option>
+              <option>Baño y peluquería</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="mensaje">Contanos qué necesita tu mascota</label>
+            <textarea id="mensaje" rows="3" placeholder="Ej: Necesita un baño y corte de uñas"></textarea>
+          </div>
+           <button type="submit" class="btn-enviar">Enviar solicitud de turno</button>
+          <div class="mensaje-envio" id="mensajeEnvio">¡Listo! En breve te contactamos para confirmar el turno 🐾</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer>
+    <div class="marca">
+      <img src="assets/logo.png" alt="Logo CeciVet">
+      <span class="marca-texto">Cecivet</span>
+    </div>
+    <p>Consultas · Vacunas · Baños y Peluquería — cuidamos con amor, sanamos con vocación.</p>
+    <div class="redes">
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+    </div>
+    <p>© 2026 CeciVet. Sitio hecho con ❤️🐾</p>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>

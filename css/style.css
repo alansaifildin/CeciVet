@@ -1,0 +1,415 @@
+/* ===========================================================
+   CeciVet — style.css
+   Paleta y tipografía sacadas directo del logo oficial:
+   verde salvia + crema + verde bosque + caramelo (del pelaje).
+   El motivo que se repite en todo el sitio: la insignia circular
+   punteada y la "placa" con borde cosido, igual que el logo.
+   =========================================================== */
+
+:root{
+  --salvia:        #7C9D74;  /* verde del aro del logo */
+  --salvia-suave:  #E4EEDD;  /* verde clarito, fondos */
+  --bosque:        #2F4A34;  /* verde oscuro del texto del logo */
+  --bosque-tinta:  #1E301F;
+  --crema:         #FBF6EA;  /* fondo cálido general */
+  --crema-placa:   #FFFDF6;  /* crema de la "placa" del nombre */
+  --caramelo:      #C98A3E;  /* del pelaje del perro, acento cálido */
+  --caramelo-osc:  #A66A28;
+  --texto:         #2B372A;
+  --texto-suave:   #5E6F5B;
+  --radio:         26px;
+  --sombra: 0 14px 34px -12px rgba(47, 74, 52, 0.28);
+  --borde-placa: 2.5px dashed var(--salvia);
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family:'Work Sans', sans-serif;
+  background: var(--crema);
+  color: var(--texto);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+
+h1,h2,h3,.marca-texto{ font-family:'Pacifico', cursive; color:var(--bosque); line-height:1.2; font-weight:400; }
+.eyebrow, .etiqueta{ font-family:'Work Sans', sans-serif; }
+
+a{ text-decoration:none; color:inherit; }
+img,svg{ display:block; max-width:100%; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+}
+
+.contenedor{ max-width:1160px; margin:0 auto; padding:0 24px; }
+
+/* Textura de huellitas de fondo — el "papel de la marca" */
+.textura-huellas{
+  background-image: radial-gradient(circle at 2px 2px, rgba(47,74,52,0.06) 1.6px, transparent 0);
+  background-size: 26px 26px;
+}
+
+/* ===========================================================
+   NAVBAR
+   =========================================================== */
+header{
+  position:sticky; top:0; z-index:100;
+  background: rgba(251,246,234,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(47,74,52,0.12);
+}
+nav{
+  max-width:1160px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 12px 24px;
+}
+.marca{ display:flex; align-items:center; gap:12px; }
+.marca img{ width:52px; height:52px; border-radius:50%; }
+.marca-texto{ font-size:1.6rem; }
+
+.menu{
+  display:flex; gap:30px; list-style:none;
+  font-weight:600; font-size:0.96rem; color:var(--bosque-tinta);
+}
+.menu a{ position:relative; padding:4px 2px; }
+.menu a::after{
+  content:""; position:absolute; left:0; bottom:-3px;
+  width:0%; height:3px; background:var(--caramelo);
+  border-radius:3px; transition:width .25s ease;
+}
+.menu a:hover::after, .menu a:focus-visible::after{ width:100%; }
+.menu a:focus-visible, .cta:focus-visible, .cta-outline:focus-visible{
+  outline:3px solid var(--caramelo); outline-offset:3px; border-radius:6px;
+}
+
+/* Botón "sello": borde punteado, como la placa del logo */
+.cta{
+  background: var(--caramelo);
+  color: white;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-weight:700;
+  box-shadow: var(--sombra);
+  transition: transform .2s ease, background .2s ease;
+  display:inline-block;
+  border: 2.5px dashed rgba(255,255,255,0.55);
+}
+.cta:hover{ background: var(--caramelo-osc); transform: translateY(-2px); }
+
+.cta-outline{
+  border: 2.5px dashed var(--bosque);
+  color: var(--bosque);
+  padding: 9px 24px;
+  border-radius: 999px;
+  font-weight:700;
+  display:inline-block;
+  transition: background .2s ease, color .2s ease;
+}
+.cta-outline:hover{ background:var(--bosque); color:white; }
+
+/* Menú hamburguesa SOLO CSS (sin una línea de JavaScript) */
+.menu-checkbox{ display:none; }
+.menu-btn{
+  display:none; font-size:1.7rem; color:var(--bosque);
+  cursor:pointer; line-height:1;
+}
+
+/* ===========================================================
+   HERO
+   =========================================================== */
+.hero{
+  position:relative;
+  padding: 90px 24px 40px;
+  background:
+    radial-gradient(circle at 85% 15%, var(--salvia-suave) 0%, transparent 55%),
+    var(--crema);
+}
+.hero-grid{
+  max-width:1160px; margin:0 auto;
+  display:grid; grid-template-columns: 1.05fr 0.95fr;
+  gap:56px; align-items:center;
+}
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  background: var(--salvia-suave); color: var(--bosque);
+  font-weight:700; font-size:0.82rem;
+  padding: 8px 18px; border-radius:999px; margin-bottom:22px;
+  border: 1.5px dashed var(--salvia);
+}
+.hero h1{
+  font-size: clamp(2.6rem, 5.2vw, 4rem);
+  margin-bottom:20px;
+}
+.hero h1 .resalto{ color: var(--caramelo); }
+.hero p{
+  font-family:'Work Sans', sans-serif;
+  font-size:1.12rem; color: var(--texto-suave);
+  max-width:48ch; margin-bottom:32px;
+}
+.hero-botones{ display:flex; gap:16px; flex-wrap:wrap; }
+
+/* Insignia circular con el logo real + aro punteado girando —
+   elemento firma tomado directo del isotipo de la marca */
+.hero-insignia{
+  position:relative;
+  aspect-ratio:1/1;
+  display:flex; align-items:center; justify-content:center;
+}
+.aro-punteado{
+  position:absolute; inset: 4%;
+  border-radius:50%;
+  border: 3px dashed var(--salvia);
+  animation: girar 40s linear infinite;
+}
+.aro-punteado.aro-2{ inset: -3%; border-color: rgba(201,138,62,0.45); animation-duration: 60s; animation-direction: reverse; }
+@keyframes girar{ to{ transform: rotate(360deg); } }
+
+.logo-hero{
+  width: 74%;
+  border-radius:50%;
+  box-shadow: var(--sombra);
+  position:relative;
+  z-index:2;
+}
+
+.hoja-flot{ position:absolute; opacity:.8; }
+.hoja-flot svg{ width:34px; }
+.hoja-flot.h1{ top:2%; left:0%; }
+.hoja-flot.h2{ bottom:6%; right:2%; transform:rotate(140deg); }
+
+/* Franja de confianza */
+.franja{
+  border-top: 1.5px dashed rgba(47,74,52,0.25);
+  border-bottom: 1.5px dashed rgba(47,74,52,0.25);
+  padding: 26px 24px;
+  margin-top: 50px;
+}
+.franja-grid{
+  max-width:1160px; margin:0 auto;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;
+}
+.franja-item{ display:flex; align-items:center; gap:10px; font-weight:700; color:var(--bosque); font-size:.95rem; }
+.franja-item svg{ width:22px; height:22px; }
+
+/* ===========================================================
+   SERVICIOS
+   =========================================================== */
+.servicios{ padding: 100px 24px 90px; }
+.titulo-seccion{ text-align:center; max-width:640px; margin:0 auto 56px; }
+.titulo-seccion .eyebrow{ background: rgba(201,138,62,0.15); color: var(--caramelo-osc); border-color: var(--caramelo); }
+.titulo-seccion h2{ font-size: clamp(2rem, 4.2vw, 2.8rem); margin: 12px 0 12px; }
+.titulo-seccion p{ color: var(--texto-suave); font-size:1.05rem; }
+
+.tarjetas{ display:grid; grid-template-columns: repeat(3,1fr); gap:28px; }
+
+/* Tarjeta tipo "placa": borde punteado + esquina de hoja, como el sello del logo */
+.placa{
+  background: var(--crema-placa);
+  border-radius: var(--radio);
+  border: var(--borde-placa);
+  padding: 38px 30px;
+  position:relative;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.placa:hover{ transform: translateY(-8px); box-shadow: var(--sombra); }
+.placa.destacada{ background: var(--bosque); border-color: rgba(255,255,255,0.4); }
+.placa.destacada h3, .placa.destacada p{ color: white; }
+.placa.destacada p{ color: var(--salvia-suave); }
+
+.placa .hoja-esquina{ position:absolute; top:14px; right:16px; opacity:.55; }
+.placa .hoja-esquina svg{ width:26px; }
+
+.icono{
+  width:58px; height:58px;
+  background: var(--salvia-suave);
+  border-radius: 16px;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:20px;
+}
+.placa.destacada .icono{ background: var(--caramelo); }
+.icono svg{ width:28px; height:28px; }
+
+.placa h3{ font-size:1.5rem; margin-bottom:10px; }
+.placa p{ color: var(--texto-suave); font-size:0.98rem; }
+
+.etiqueta-top{
+  display:inline-block; background:var(--caramelo); color:white;
+  font-size:0.72rem; font-weight:800; letter-spacing:.05em;
+  padding:4px 12px; border-radius:999px; margin-bottom:16px;
+}
+
+/* ===========================================================
+   NOSOTROS
+   =========================================================== */
+.nosotros{ padding: 90px 24px; background: var(--salvia-suave); }
+.nosotros-grid{
+  max-width:1160px; margin:0 auto;
+  display:grid; grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px; align-items:center;
+}
+.foto-insignia{
+  position:relative; aspect-ratio:1/1;
+  display:flex; align-items:center; justify-content:center;
+}
+.foto-marco{
+  width:82%; aspect-ratio:1/1; border-radius:50%;
+  background: var(--bosque);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: var(--sombra); position:relative; overflow:hidden;
+}
+.foto-marco img{
+  width:100%; height:100%;
+  object-fit: cover;
+  display:block;
+}
+.foto-marco .cinta{
+  position:absolute; bottom:0; left:0; right:0;
+  background: rgba(0,0,0,0.32); color:white; text-align:center;
+  padding:14px; font-weight:700; font-size:.9rem;
+}
+
+.nosotros h2{ font-size: clamp(2rem, 4.2vw, 2.6rem); margin-bottom:18px; }
+.nosotros p{ color: var(--texto-suave); margin-bottom:16px; font-size:1.02rem; }
+
+.stats{ display:flex; gap:40px; margin-top:26px; flex-wrap:wrap; }
+.stats div strong{ display:block; font-family:'Pacifico',cursive; font-size:2rem; color: var(--caramelo-osc); font-weight:400; }
+.stats div span{ font-size:.86rem; color:var(--texto-suave); font-weight:600; }
+
+/* ===========================================================
+   GALERÍA
+   =========================================================== */
+.galeria{ padding:90px 24px; }
+.grilla-galeria{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.foto-item{
+  aspect-ratio:1/1;
+  border-radius: 18px;
+  border: var(--borde-placa);
+  background: var(--crema-placa);
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:8px;
+  color: var(--bosque); font-weight:700; font-size:.88rem;
+  transition: transform .2s ease;
+  overflow: hidden;
+}
+.foto-item:hover{ transform: translateY(-6px) rotate(-1deg); }
+.foto-item img{
+  width:100%; height:100%;
+  object-fit: cover;
+  display:block;
+}
+.foto-item svg{ width:30%; opacity:.85; }
+.foto-item.placeholder{ opacity:.55; }
+.foto-item.destacada{ background: var(--bosque); color:white; border-color: rgba(255,255,255,0.4); }
+
+/* ===========================================================
+   CONTACTO
+   =========================================================== */
+.contacto{ padding:100px 24px; background: var(--bosque); color:white; position:relative; }
+.contacto-grid{
+  max-width:1160px; margin:0 auto;
+  display:grid; grid-template-columns: 0.9fr 1.1fr; gap:56px;
+}
+.contacto h2{ color:white; font-size: clamp(2rem,4.2vw,2.6rem); margin-bottom:16px; }
+.contacto > .contacto-grid > div:first-child p{ color: var(--salvia-suave); margin-bottom:30px; font-size:1.02rem; }
+
+.dato{ display:flex; gap:14px; margin-bottom:20px; align-items:flex-start; }
+.dato .icono-chico{
+  width:42px; height:42px; background: rgba(255,255,255,0.12);
+  border: 1.5px dashed rgba(255,255,255,0.4);
+  border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.dato .icono-chico svg{ width:20px; height:20px; }
+.dato strong{ display:block; font-size:.95rem; }
+.dato span{ color: var(--salvia-suave); font-size:.9rem; }
+
+/* La placa del formulario — misma idea que el cartel del logo */
+.form-placa{
+  background: var(--crema-placa);
+  border-radius: var(--radio);
+  border: var(--borde-placa);
+  padding: 38px;
+  box-shadow: var(--sombra);
+}
+.form-placa h3{ margin-bottom:6px; font-size:1.6rem; }
+.form-placa > p{ color: var(--texto-suave); font-size:.92rem; margin-bottom:26px; font-family:'Work Sans'; }
+
+.campo{ margin-bottom:18px; }
+.campo label{ display:block; font-weight:700; font-size:.87rem; margin-bottom:6px; color:var(--bosque); }
+.campo input, .campo select, .campo textarea{
+  width:100%; padding:12px 14px; border-radius:12px;
+  border: 2px solid rgba(47,74,52,0.18);
+  font-family:inherit; font-size:.95rem; background:white; color:var(--texto);
+  transition: border-color .2s ease;
+}
+.campo input:focus, .campo select:focus, .campo textarea:focus{ outline:none; border-color: var(--caramelo); }
+.campo-fila{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+
+.btn-enviar{
+  width:100%; background: var(--caramelo); color:white;
+  padding:14px; border-radius:999px; font-weight:800; font-size:1rem;
+  border: 2.5px dashed rgba(255,255,255,0.55);
+  transition: background .2s ease; cursor:pointer;
+}
+.btn-enviar:hover{ background: var(--caramelo-osc); }
+.mensaje-envio{
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--salvia-suave);
+  color: var(--bosque);
+  font-weight: 700;
+  font-size: .9rem;
+  text-align: center;
+  display: none;
+}
+.mensaje-envio.visible{
+  display: block;
+}
+
+/* ===========================================================
+   FOOTER
+   =========================================================== */
+footer{ background: var(--bosque-tinta); color: var(--salvia-suave); padding:44px 24px 26px; text-align:center; font-size:.88rem; }
+footer .marca{ justify-content:center; margin-bottom:12px; }
+footer .marca-texto{ color:white; }
+footer .marca img{ width:44px; height:44px; }
+footer .redes{ display:flex; justify-content:center; gap:16px; margin:18px 0; }
+footer .redes a{
+  width:38px; height:38px; border-radius:50%;
+  background: rgba(255,255,255,0.08); border: 1.5px dashed rgba(255,255,255,0.3);
+  display:flex; align-items:center; justify-content:center;
+  transition: background .2s ease;
+}
+footer .redes a:hover{ background: var(--caramelo); border-color: transparent; }
+footer .redes svg{ width:18px; height:18px; }
+
+/* ===========================================================
+   RESPONSIVE
+   =========================================================== */
+@media (max-width:900px){
+  .hero-grid, .nosotros-grid, .contacto-grid{ grid-template-columns:1fr; }
+  .nosotros .foto-insignia{ order:-1; max-width:340px; margin:0 auto; }
+  .tarjetas{ grid-template-columns:1fr 1fr; }
+  .grilla-galeria{ grid-template-columns: repeat(2,1fr); }
+  .hero-insignia{ max-width:340px; margin:0 auto; }
+}
+
+@media (max-width:640px){
+  .menu{
+    position:absolute; top:100%; left:0; right:0;
+    background:var(--crema); flex-direction:column;
+    padding:20px 24px; gap:18px;
+    display:none;
+    border-bottom:1.5px dashed var(--salvia);
+  }
+  /* Truco CSS puro: el checkbox invisible controla si se ve el menú */
+  .menu-checkbox:checked ~ .menu{ display:flex; }
+  .menu-btn{ display:block; }
+  .tarjetas{ grid-template-columns:1fr; }
+  .grilla-galeria{ grid-template-columns: repeat(2,1fr); }
+  .campo-fila{ grid-template-columns:1fr; }
+  .franja-grid{ justify-content:center; text-align:center; }
+  .stats{ gap:24px; }
+}

@@ -83,6 +83,13 @@ nav{
 .menu a:focus-visible, .cta:focus-visible, .cta-outline:focus-visible{
   outline:3px solid var(--caramelo); outline-offset:3px; border-radius:6px;
 }
+.menu a{
+  transition: color .2s ease, transform .2s ease;
+}
+.menu a:hover, .menu a:focus-visible{
+  color: var(--caramelo);
+  transform: translateY(-2px);
+}
 
 /* Botón "sello": borde punteado, como la placa del logo */
 .cta{
@@ -213,7 +220,23 @@ nav{
   position:relative;
   transition: transform .25s ease, box-shadow .25s ease;
 }
-.placa:hover{ transform: translateY(-8px); box-shadow: var(--sombra); }
+.placa{
+  transition: transform .35s ease, box-shadow .35s ease, opacity .35s ease;
+}
+
+/* Cuando el mouse está sobre EL GRUPO de tarjetas... */
+.tarjetas:hover .placa{
+  opacity: 0.95;
+  transform: scale(0.95);
+}
+
+/* ...pero la tarjeta puntual que está tocando el mouse se destaca */
+.tarjetas:hover .placa:hover{
+  opacity: 1;
+  transform: scale(1.06) translateY(-6px);
+  box-shadow: var(--sombra);
+  z-index: 5;
+}
 .placa.destacada{ background: var(--bosque); border-color: rgba(255,255,255,0.4); }
 .placa.destacada h3, .placa.destacada p{ color: white; }
 .placa.destacada p{ color: var(--salvia-suave); }
@@ -384,7 +407,20 @@ footer .redes a{
 }
 footer .redes a:hover{ background: var(--caramelo); border-color: transparent; }
 footer .redes svg{ width:18px; height:18px; }
-
+/* Animación al hacer scroll: las tarjetas arrancan invisibles
+   y desplazadas hacia abajo, y aparecen suavemente al entrar en pantalla */
+.aparecer{
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.aparecer.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Efecto "cascada": cada tarjeta aparece un poquito después que la anterior */
+.tarjetas .placa:nth-child(2){ transition-delay: .12s; }
+.tarjetas .placa:nth-child(3){ transition-delay: .24s; }
 /* ===========================================================
    RESPONSIVE
    =========================================================== */
@@ -413,3 +449,80 @@ footer .redes svg{ width:18px; height:18px; }
   .franja-grid{ justify-content:center; text-align:center; }
   .stats{ gap:24px; }
 }
+/* Botón flotante de WhatsApp: siempre visible, en cualquier parte del sitio */
+.whatsapp-flotante{
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 58px;
+  height: 58px;
+  background: #25D366; /* verde oficial de WhatsApp, para que se reconozca al toque */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px -4px rgba(0,0,0,0.35);
+  z-index: 200;
+  transition: transform .2s ease;
+  animation: pulso 2.5s ease-in-out infinite;
+}
+.whatsapp-flotante svg{ width: 30px; height: 30px; }
+.whatsapp-flotante:hover{ transform: scale(1.1); }
+
+@keyframes pulso{
+  0%, 100%{ box-shadow: 0 8px 20px -4px rgba(0,0,0,0.35), 0 0 0 0 rgba(37,211,102,0.5); }
+  50%{ box-shadow: 0 8px 20px -4px rgba(0,0,0,0.35), 0 0 0 10px rgba(37,211,102,0); }
+}
+
+@media (max-width: 640px){
+  .whatsapp-flotante{ bottom: 16px; right: 16px; width: 52px; height: 52px; }
+}
+/* Esta regla es más específica que .aparecer.visible, así que gana siempre,
+   permitiendo que el hover funcione incluso después de la animación de entrada */
+.foto-item.aparecer.visible:hover{
+  transform: translateY(-6px) rotate(-1deg);
+  box-shadow: var(--sombra);
+}
+/* Lightbox: pantalla completa oscura con la foto ampliada */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 48, 31, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none; /* invisible y "no clickeable" hasta que se active */
+  transition: opacity .25s ease;
+  z-index: 300;
+  padding: 40px;
+}
+.lightbox.visible{
+  opacity: 1;
+  pointer-events: auto; /* ahora sí reacciona a clicks */
+}
+.lightbox img{
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.lightbox-cerrar{
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s ease;
+}
+.lightbox-cerrar:hover{ background: var(--caramelo); }
+
+/* Para que se note que las fotos se pueden ampliar */
+.foto-item img{ cursor: zoom-in; }

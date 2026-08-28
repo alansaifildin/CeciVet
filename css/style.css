@@ -36,21 +36,19 @@ body{
   overflow-x:hidden;
 }
 
-/* Pacifico queda SOLO para 3 momentos de marca: el nombre en el navbar/footer,
-   una palabra suelta en el hero, y los números grandes de estadísticas.
-   Los títulos reales (h1/h2/h3) usan Work Sans con pesos diferenciados —
-   así hay jerarquía de verdad, no todo "gritando" con la misma tipografía. */
+/* Pacifico queda reservado a UN solo lugar con justificación real: el nombre
+   de marca, porque así aparece escrito en el logo físico. Todo lo demás
+   (incluido el hero y las estadísticas) usa Work Sans — una sola familia
+   tipográfica, con jerarquía real hecha por tamaño y peso, no por decoración. */
 .marca-texto{ font-family:'Pacifico', cursive; font-weight:400; }
 
 h1,h2,h3{
   font-family:'Work Sans', sans-serif;
   color:var(--bosque);
-  line-height:1.15;
-  letter-spacing:-0.015em;
 }
-h1{ font-weight:800; }
-h2{ font-weight:700; }
-h3{ font-weight:600; letter-spacing:-0.005em; }
+h1{ font-weight:700; line-height:1.2; letter-spacing:-0.02em; max-width:620px; }
+h2{ font-weight:600; line-height:1.2; letter-spacing:-0.01em; }
+h3{ font-weight:600; line-height:1.25; }
 
 .eyebrow, .etiqueta{ font-family:'Work Sans', sans-serif; }
 
@@ -161,7 +159,7 @@ nav{
 .eyebrow{
   display:inline-flex; align-items:center; gap:8px;
   background: var(--salvia-suave); color: var(--bosque);
-  font-weight:700; font-size:0.82rem;
+  font-weight:600; font-size:0.82rem;
   padding: 8px 18px; border-radius:999px; margin-bottom:22px;
   border: 1.5px dashed var(--salvia);
 }
@@ -247,13 +245,11 @@ nav{
 .placa{
   transition: transform .35s ease, box-shadow .35s ease, opacity .35s ease;
 }
-
 /* Cuando el mouse está sobre EL GRUPO de tarjetas... */
 .tarjetas:hover .placa{
   opacity: 0.90;
   transform: scale(0.95);
 }
-
 /* ...pero la tarjeta puntual que está tocando el mouse se destaca */
 .tarjetas:hover .placa:hover{
   opacity: 1;
@@ -318,11 +314,11 @@ nav{
 }
 
 .nosotros h2{ font-size: clamp(1.8rem, 3.8vw, 2.2rem); margin-bottom:16px; }
-.nosotros p{ color: var(--texto-suave); margin-bottom:16px; font-size:1.02rem; }
+.nosotros p{ color: var(--texto-suave); margin-bottom:16px; font-size:1.02rem; max-width: 58ch; }
 
 .stats{ display:flex; gap:40px; margin-top:26px; flex-wrap:wrap; }
-.stats div strong{ display:block; font-family:'Pacifico',cursive; font-size:2rem; color: var(--caramelo-osc); font-weight:400; }
-.stats div span{ font-size:.86rem; color:var(--texto-suave); font-weight:600; }
+.stats div strong{ display:block; font-family:'Work Sans', sans-serif; font-size:1.35rem; font-weight:700; color: var(--caramelo-osc); }
+.stats div span{ font-size:.86rem; color:var(--texto-suave); font-weight:500; }
 
 /* ===========================================================
    GALERÍA

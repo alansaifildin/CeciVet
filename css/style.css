@@ -146,66 +146,49 @@ nav{
    =========================================================== */
 .hero{
   position:relative;
-  padding: 90px 24px 40px;
-  background:
-    radial-gradient(circle at 85% 15%, var(--salvia-suave) 0%, transparent 55%),
-    var(--crema);
+  min-height: 88vh;
+  display:flex;
+  align-items:flex-start;
+  padding: 80px 6vw 60px;
+  background-color: var(--bosque-tinta);
+  background-image:
+    linear-gradient(180deg, rgba(20,32,21,0.55) 0%, rgba(20,32,21,0.7) 55%, rgba(20,32,21,0.88) 100%),
+    url('../assets/hero-fondo.jpg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center 45%;
+  background-size: cover, cover;
 }
-.hero-grid{
-  max-width:1160px; margin:0 auto;
-  display:grid; grid-template-columns: 1.05fr 0.95fr;
-  gap:56px; align-items:center;
-}
+.hero-contenido{ max-width:640px; }
+
 .eyebrow{
   display:inline-flex; align-items:center; gap:8px;
-  background: var(--salvia-suave); color: var(--bosque);
+  background: var(--crema-placa); color: var(--bosque);
   font-weight:600; font-size:0.82rem;
   padding: 8px 18px; border-radius:999px; margin-bottom:22px;
-  border: 1.5px dashed var(--salvia);
+  border: 1px solid rgba(47,74,52,0.16);
+}
+.eyebrow-hero{
+  background: rgba(255,255,255,0.14);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(4px);
 }
 .hero h1{
-  font-size: clamp(2.6rem, 5.2vw, 4rem);
-  margin-bottom:20px;
-}
-.hero h1 .resalto{
-  color: var(--caramelo);
-  font-family:'Pacifico', cursive;
-  font-weight:400;
-  letter-spacing:normal;
+  font-size: clamp(2.4rem, 4.6vw, 3.4rem);
+  color: white;
+  margin-bottom:18px;
 }
 .hero p{
   font-family:'Work Sans', sans-serif;
-  font-size:1.12rem; color: var(--texto-suave);
+  font-size:1.1rem; color: rgba(255,255,255,0.88);
   max-width:48ch; margin-bottom:32px;
 }
 .hero-botones{ display:flex; gap:16px; flex-wrap:wrap; }
-
-/* Insignia circular con el logo real + aro punteado girando —
-   elemento firma tomado directo del isotipo de la marca */
-.hero-insignia{
-  position:relative;
-  aspect-ratio:1/1;
-  display:flex; align-items:center; justify-content:center;
+.cta-outline-hero{
+  border-color: white;
+  color: white;
 }
-.aro-punteado{
-  position:absolute; inset: 4%;
-  border-radius:50%;
-  border: 1.5px dashed var(--salvia);
-}
-.aro-punteado.aro-2{ inset: -3%; border-color: rgba(201,138,62,0.4); }
-
-.logo-hero{
-  width: 74%;
-  border-radius:50%;
-  box-shadow: var(--sombra);
-  position:relative;
-  z-index:2;
-}
-
-.hoja-flot{ position:absolute; opacity:.8; }
-.hoja-flot svg{ width:34px; }
-.hoja-flot.h1{ top:2%; left:0%; }
-.hoja-flot.h2{ bottom:6%; right:2%; transform:rotate(140deg); }
+.cta-outline-hero:hover{ background: white; color: var(--bosque); }
 
 /* Franja de confianza */
 .franja{
@@ -226,7 +209,7 @@ nav{
    =========================================================== */
 .servicios{ padding: 76px 24px 64px; }
 .titulo-seccion{ text-align:center; max-width:600px; margin:0 auto 40px; }
-.titulo-seccion .eyebrow{ background: rgba(201,138,62,0.15); color: var(--caramelo-osc); border-color: var(--caramelo); }
+.titulo-seccion .eyebrow{ background: rgba(201,138,62,0.1); color: var(--caramelo-osc); border-color: rgba(201,138,62,0.35); }
 .titulo-seccion h2{ font-size: clamp(1.8rem, 3.6vw, 2.35rem); margin: 14px 0 10px; }
 .titulo-seccion p{ color: var(--texto-suave); font-size:1rem; }
 
@@ -242,9 +225,19 @@ nav{
   position:relative;
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.placa:hover{
-  transform: translateY(-4px);
-  box-shadow: var(--sombra-suave);
+.placa{
+  transition: transform .35s ease, box-shadow .35s ease, opacity .35s ease;
+}
+/* Cuando el mouse está sobre EL GRUPO de tarjetas... */
+.tarjetas:hover .placa{
+  transform: scale(0.95);
+}
+/* ...pero la tarjeta puntual que está tocando el mouse se destaca */
+.tarjetas:hover .placa:hover{
+  opacity: 1;
+  transform: scale(1.06) translateY(-6px);
+  box-shadow: var(--sombra);
+  z-index: 5;
 }
 .placa.destacada{ background: var(--bosque); border-color: var(--bosque); }
 .placa.destacada h3, .placa.destacada p{ color: white; }
@@ -255,12 +248,13 @@ nav{
 
 .icono{
   width:48px; height:48px;
-  background: var(--salvia-suave);
+  background: var(--crema-placa);
+  border: 1px solid rgba(47,74,52,0.16);
   border-radius: var(--radio-chico);
   display:flex; align-items:center; justify-content:center;
   margin-bottom:18px;
 }
-.placa.destacada .icono{ background: var(--caramelo); }
+.placa.destacada .icono{ background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.3); }
 .icono svg{ width:24px; height:24px; }
 
 .placa h3{ font-size:1.2rem; margin-bottom:8px; }
@@ -275,7 +269,7 @@ nav{
 /* ===========================================================
    NOSOTROS
    =========================================================== */
-.nosotros{ padding: 72px 24px; background: var(--salvia-suave); }
+.nosotros{ padding: 72px 24px; background: var(--crema-placa); }
 .nosotros-grid{
   max-width:1160px; margin:0 auto;
   display:grid; grid-template-columns: 0.8fr 1.2fr;
@@ -334,6 +328,30 @@ nav{
 .foto-item svg{ width:30%; opacity:.85; }
 .foto-item.placeholder{ opacity:.55; }
 .foto-item.destacada{ background: var(--bosque); color:white; border-color: rgba(255,255,255,0.4); }
+
+/* Banda con foto real de fondo — usa una foto propia de la galería,
+   con un overlay oscuro para que el texto se lea bien encima */
+.cita-grande{
+  position: relative;
+  overflow: hidden;
+  padding: 84px 24px;
+  text-align:center;
+  color: white;
+}
+.cita-grande-video{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+.cita-grande-overlay{
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(30,48,31,0.6), rgba(30,48,31,0.82));
+  z-index:1;
+}
+.cita-grande-texto{ position:relative; z-index:2; }
+.cita-grande h2{ color:white; font-size: clamp(1.8rem,3.8vw,2.3rem); margin-bottom:12px; }
+.cita-grande p{ color: rgba(255,255,255,0.85); margin-bottom:26px; font-size:1.02rem; }
 
 /* ===========================================================
    CONTACTO
@@ -409,19 +427,64 @@ nav{
 /* ===========================================================
    FOOTER
    =========================================================== */
-footer{ background: var(--bosque-tinta); color: var(--salvia-suave); padding:36px 24px 22px; text-align:center; font-size:.88rem; }
-footer .marca{ justify-content:center; margin-bottom:12px; }
+footer{ background: var(--bosque-tinta); color: rgba(255,255,255,0.75); font-size:.88rem; }
+
+.volver-arriba{
+  display:flex; flex-direction:column; align-items:center; gap:4px;
+  text-align:center; padding: 20px 24px 16px;
+  color: rgba(255,255,255,0.6); font-size:.82rem; font-weight:600;
+  transition: color .18s ease;
+}
+.volver-arriba:hover{ color: var(--caramelo); }
+.volver-arriba svg{ width:16px; height:16px; }
+
+.footer-grid{
+  max-width:1160px; margin:0 auto;
+  padding: 28px 24px 8px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  display:grid; grid-template-columns: 1.3fr 1fr 1.2fr 1fr;
+  gap: 32px;
+  text-align:left;
+}
+.footer-col h4{
+  color: var(--caramelo); font-family:'Work Sans'; font-weight:700;
+  font-size:.78rem; text-transform:uppercase; letter-spacing:.06em;
+  margin-bottom:14px;
+}
+.footer-col p, .footer-col a{ display:block; color: rgba(255,255,255,0.72); margin-bottom:9px; }
+.footer-col a:hover{ color: var(--caramelo); }
+footer .marca{ justify-content:flex-start; margin-bottom:10px; }
 footer .marca-texto{ color:white; }
-footer .marca img{ width:44px; height:44px; }
-footer .redes{ display:flex; justify-content:center; gap:16px; margin:18px 0; }
+footer .marca img{ width:40px; height:40px; }
+.footer-col .tagline{ font-size:.85rem; margin-bottom:16px; }
+
+footer .redes{ display:flex; justify-content:flex-start; gap:12px; margin:0; }
 footer .redes a{
-  width:38px; height:38px; border-radius:50%;
-  background: rgba(255,255,255,0.08); border: 1.5px dashed rgba(255,255,255,0.3);
+  width:34px; height:34px; border-radius:50%;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
   display:flex; align-items:center; justify-content:center;
-  transition: background .2s ease;
+  transition: background .18s ease;
+  margin-bottom:0;
 }
 footer .redes a:hover{ background: var(--caramelo); border-color: transparent; }
-footer .redes svg{ width:18px; height:18px; }
+footer .redes svg{ width:16px; height:16px; }
+
+.footer-abajo{
+  max-width:1160px; margin:0 auto;
+  padding: 20px 24px 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 20px;
+  text-align:center;
+  font-size:.8rem;
+  color: rgba(255,255,255,0.5);
+}
+
+@media (max-width: 780px){
+  .footer-grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px){
+  .footer-grid{ grid-template-columns: 1fr; }
+}
 /* Animación al hacer scroll: las tarjetas arrancan invisibles
    y desplazadas hacia abajo, y aparecen suavemente al entrar en pantalla */
 .aparecer{
@@ -440,11 +503,10 @@ footer .redes svg{ width:18px; height:18px; }
    RESPONSIVE
    =========================================================== */
 @media (max-width:900px){
-  .hero-grid, .nosotros-grid, .contacto-grid{ grid-template-columns:1fr; }
+  .nosotros-grid, .contacto-grid{ grid-template-columns:1fr; }
   .nosotros .foto-insignia{ order:-1; max-width:340px; margin:0 auto; }
   .tarjetas{ grid-template-columns:1fr 1fr; }
   .grilla-galeria{ grid-template-columns: repeat(2,1fr); }
-  .hero-insignia{ max-width:340px; margin:0 auto; }
 }
 
 @media (max-width:640px){
@@ -453,7 +515,7 @@ footer .redes svg{ width:18px; height:18px; }
     background:var(--crema); flex-direction:column;
     padding:20px 24px; gap:18px;
     display:none;
-    border-bottom:1.5px dashed var(--salvia);
+    border-bottom:1.5px dashed rgba(201,138,62,0.4);
   }
   /* Truco CSS puro: el checkbox invisible controla si se ve el menú */
   .menu-checkbox:checked ~ .menu{ display:flex; }

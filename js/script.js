@@ -8,20 +8,25 @@ if (form) {
   form.addEventListener('submit', function(evento) {
     evento.preventDefault();
 
-    const nombre = document.getElementById('nombre').value;
-    const mascota = document.getElementById('mascota').value;
-    const servicio = document.getElementById('servicio').value;
-    const mensaje = document.getElementById('mensaje').value;
+    const datos = new FormData(form);
 
-    const texto = `¡Hola CeciVet! 🐾\n\nSoy ${nombre}.\nMi mascota: ${mascota}\nServicio: ${servicio}\nDetalle: ${mensaje}`;
-    const textoCodificado = encodeURIComponent(texto);
-    const linkWhatsApp = `https://wa.me/595971111958?text=${textoCodificado}`;
-
-    mensajeEnvio.classList.add('visible');
-    window.open(linkWhatsApp, '_blank');
-    form.reset();
+    fetch(form.action, {
+      method: 'POST',
+      body: datos,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(respuesta) {
+      if (respuesta.ok) {
+        mensajeEnvio.classList.add('visible');
+        form.reset();
+      } else {
+        alert('Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.');
+      }
+    }).catch(function() {
+      alert('Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.');
+    });
   });
 }
+
 
 // ===========================================================
 // ANIMACIÓN AL SCROLL (funciona en cualquier página)

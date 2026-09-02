@@ -633,3 +633,31 @@ footer .redes svg{ width:16px; height:16px; }
 @media (max-width: 780px){
   .resenas-grid{ grid-template-columns: 1fr; }
 }
+/* ===========================================================
+   AJUSTES SOLO PARA CELULAR (no afecta la versión de compu)
+   =========================================================== */
+@media (max-width: 640px){
+
+  /* La franja de confianza pasa a 2 columnas, más compacta */
+  .franja-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 16px;
+    text-align: left;
+  }
+  .franja-item{
+    font-size: .82rem;
+    gap: 8px;
+  }
+  .franja-item svg{
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  /* El bloque de Consultas/Vacunas/Baño se apila en una sola columna prolija */
+  .stats{
+    flex-direction: column;
+    gap: 14px;
+  }
+}
